@@ -4,6 +4,33 @@ This is a kdb/q binding for POSIX.2 regular expressions including extended REs a
 
 The q api is similar to [like](https://code.kx.com/q/ref/like/) and it works with enums and mapped types as well.
 
+## Examples
+```
+q)\l regex.q
+q)s where (s:200?`3) rmatch "[a-d][e-h][i-l]|[i-k][e-h][a-d]"
+`cfl`iec`kfd`bfk`cfi`cek`cei`kgd`jec
+q)n:"(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])"
+q)ip:re"^",n,"\\.",n,"\\.",n,"\\.",n,"$"
+q)ip
+foreign
+q)"192.168.1.999" rmatch ip
+0b
+q)"192.168.1.100" rmatch ip
+1b
+q)"192.168.1.100" rmatches ip
+"192.168.1.100"
+"192"
+"168"
+,"1"
+"100"
+q)"192.168.1.100" irmatches ip
+0  13
+0  3
+4  7
+8  9
+10 13
+```
+
 # Build & Install
 
 This repo contains **regex.so** for Linux but you can also build it with make/gcc.
