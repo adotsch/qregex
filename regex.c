@@ -43,18 +43,18 @@ Z K2(match)
 	#define MATCH(s) (!regexec(re,s,0,0,0))
 	switch(xt)
 	{
-		case(-KS):
+		case -KS:
 		{
 			ret = kb(MATCH(x->s));
 			break;
 		}
-		case(KC):
+		case KC:
 		{
 			C str[xn+1];memcpy(str,xC,xn);str[xn]=0;
 			ret = kb(MATCH(str));
 			break;
 		}
-		case(KS):
+		case KS:
 		{
 			ret = ktn(KB,xn);
 			DO(xn,kG(ret)[i]=MATCH(xS[i]));
@@ -76,7 +76,7 @@ Z K2(match)
 			r0(x0);
 			break;
 		}
-		case(0):
+		case 0:
 		{
 			ret = ktn(KB,xn);
 			for(J i=xn;i-->0;)
@@ -140,14 +140,7 @@ Z K matches_impl(K x,K y,G se)
 	R ret;
 }
 
-Z K2(matches)
-{
-	R matches_impl(x,y,0);
-}
+Z K2(matches)  {R matches_impl(x,y,0);}
+Z K2(imatches) {R matches_impl(x,y,1);}
 
-Z K2(imatches)
-{
-	R matches_impl(x,y,1);
-}
-
-K1(api) { R k(0,"`re`rmatch`rmatches`irmatches!",knk(4,dl(comp,1),dl(match,2),dl(matches,2),dl(imatches,2)),0);}
+K1(api) {R k(0,"`re`rmatch`rmatches`irmatches!",knk(4,dl(comp,1),dl(match,2),dl(matches,2),dl(imatches,2)),0);}
