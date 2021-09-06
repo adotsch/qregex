@@ -43,7 +43,7 @@ Then you can copy **regex.so** into **$QHOME/l64/** or you can copy it into the 
 
 You can load *regex.q*, that will add the c functons to the .q namespace. If you don't like that, you can add them to the namespace of your liking, eg. to add them to .regex, you can
 ```
-q)`.regex upsert (`:regex 2:`api,1)[];
+q).regex:(`:regex 2:`api,1)[];
 ```
 The rest of this document assumes the .q namespace.
 
