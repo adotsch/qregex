@@ -70,6 +70,7 @@ The result of the compilation is a 112h type foreign object.
 Whether text matches a pattern, similar to like
 ```
 x rmatch y
+rmatch[x;y]
 ```
 where
  * x is a symbol (-11h) or string (10h), symbol vector (11h) or list of strings or a dictionary with them as values
@@ -80,6 +81,7 @@ where
 Subexpression matches
 ```
 x rmatches y
+rmatches[x;y]
 ```
 where
  * x is a symbol (-11h) or string (10h)
